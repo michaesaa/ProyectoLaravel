@@ -7,7 +7,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-900 leading-tight">
-            {{ __('tasks') }}
+            {{ __('vista de archivos cargados') }}
         </h2>
     </x-slot>
 
@@ -44,13 +44,13 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($excels as $excel)
+                    @foreach ($productos as $producto)
                         <tr class="text-end">
-                            <th scope="row">{{ $excel->name }}</th>
-                            <th scope="row">{{ $excel->description }}</th>
-                            <th scope="row">{{ $excel->price }}</th>
-                            <th scope="row">{{ $excel->quantity_left }}</th>
-                            <th scope="row">{{ $excel->category_id }}</th>
+                            <th scope="row">{{ $producto->name }}</th>
+                            <th scope="row">{{ $producto->description }}</th>
+                            <th scope="row">{{ $producto->price }}</th>
+                            <th scope="row">{{ $producto->quantity_left }}</th>
+                            <th scope="row">{{ $producto->category->name }}</th>
 
                         </tr>
                     @endforeach

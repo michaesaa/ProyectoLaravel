@@ -2,20 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Imports\ExcelImport;
-use Illuminate\Http\Request;    
-use Maatwebsite\Excel\Facades\Excel;
-use App\Models\Product;
+use Illuminate\Http\Request;
 
-class ExcelController extends Controller
+class Export extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $productos = Product::all();
-        return view('excel.index', compact('productos'));
+        //
     }
 
     /**
@@ -23,7 +19,7 @@ class ExcelController extends Controller
      */
     public function create()
     {
-        return view('excel.import-excel');
+        //
     }
 
     /**
@@ -31,13 +27,7 @@ class ExcelController extends Controller
      */
     public function store(Request $request)
     {
-        $file = $request->file('import_file');
-        // iportar el archivo
-        Excel::import(new ExcelImport, $file);
-
-        return redirect()->route('excel.index')->with('success','productos importados exitosamente');
-        
-
+        //
     }
 
     /**
