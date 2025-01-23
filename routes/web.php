@@ -24,6 +24,8 @@ Route::middleware([
 Route::resource('excel', excelController::class)->only(['index', 'create', 'store']);
 
 
+
+
 Route::resource('task',TaskController::class);
 
 Route::get('/tasks/create', [TaskController::class, 'create'])->name('task.create');

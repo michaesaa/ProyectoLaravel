@@ -4,7 +4,7 @@ namespace App\Imports;
 
 use App\Models\Excel;
 use Maatwebsite\Excel\Concerns\ToModel;
-use App\Models\Categories;
+use App\Models\Category;
 use App\Models\Product;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
@@ -17,7 +17,8 @@ class ExcelImport implements ToModel, WithHeadingRow, WithBatchInserts, WithChun
 
     public function __construct()
     {
-        $this->categories = Categories::pluck('id', 'name');
+        $this->categories = Category::pluck('id', 'name');
+        // dd($this->categories);
     }
     /**
     * @param array $row
@@ -32,7 +33,7 @@ class ExcelImport implements ToModel, WithHeadingRow, WithBatchInserts, WithChun
             'price' => $row['precio'],
             'quantity_left' => $row['en_inventario'],
             'category_id' => 1,
-            // 'category_id' => $this->categories[$row['categoria']]
+            // 'category_id' => $this->categories[$row['categoria']],
         ]);
     }
     public function batchSize(): int
