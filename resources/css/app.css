@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "tailwindcss";
+@source "../views";
+
 [x-cloak] {
     display: none;
 }

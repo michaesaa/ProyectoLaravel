@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\excelController;
+use App\Http\Controllers\VistaController;
+use App\Http\Controllers\UserController;
+
 
 
 
@@ -23,6 +26,16 @@ Route::middleware([
 
 Route::resource('excel', excelController::class)->only(['index', 'create', 'store']);
 
+
+
+//ruta de vista para practica blade 
+Route::resource('vista',VistaController::class);
+
+
+
+// export de archivo excel
+
+// Route::get('export',[UserController::class, 'exportAllUsers'])->name('users.export');
 
 
 
